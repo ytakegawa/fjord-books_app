@@ -1,0 +1,22 @@
+en:
+  activerecord:
+    models:
+      book: Book #g
+
+    attributes:
+      book:
+        books: "List of books"
+        new_books: "Register a book"
+        edit_books: "Update Book Contents"
+        author: Author #g
+        memo: Outview #g
+        picture: Image #g
+        title: Title #g
+
+  buttom:
+    new: "Create a new book"
+    edit: Update
+    back: Back
+    show: Details
+    index: List
+    destroy: Delete
