@@ -1,4 +1,10 @@
 en:
+  errors:
+    prohibited: "prohibited this book from being saved"
+    create: "Book was successfully created."
+    update: "Book was successfully updated."
+    delete: "Book was successfully destroyed."
+
   activerecord:
     models:
       book: Book #g
@@ -6,7 +12,7 @@ en:
     attributes:
       book:
         books: "List of books"
-        new_books: "Register a book"
+        new_books: "Register a new book"
         edit_books: "Update Book Contents"
         author: Author #g
         memo: Outview #g

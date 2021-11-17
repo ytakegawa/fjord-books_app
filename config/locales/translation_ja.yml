@@ -1,4 +1,10 @@
 ja:
+  errors:
+    prohibited: この書籍の保存を禁止する
+    create: 本の登録が完了しました
+    update: 本の更新が完了しました
+    delete: 本の削除が完了しました
+
   activerecord:
     models:
       book: 本 #g
