@@ -1,4 +1,12 @@
 en:
+  title:
+    books: "List of books"
+    new_books: "Register a new book"
+    edit_books: "Update Book Contents"
+
+  message:
+    confirm: "Are you sure?"
+
   errors:
     prohibited: "prohibited this book from being saved"
     create: "Book was successfully created."
@@ -11,15 +19,12 @@ en:
 
     attributes:
       book:
-        books: "List of books"
-        new_books: "Register a new book"
-        edit_books: "Update Book Contents"
         author: Author #g
         memo: Outview #g
         picture: Image #g
         title: Title #g
 
-  buttom:
+  button:
     new: "Create a new book"
     edit: Update
     back: Back
