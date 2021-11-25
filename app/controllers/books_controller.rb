@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   #   @books = Book.all
   # end
   def index
-    @books = Book.page(params[:page]).per(3)
+    @books = Book.order(id: :asc).page(params[:page]).per(3)
   end
 
   # GET /books/1
