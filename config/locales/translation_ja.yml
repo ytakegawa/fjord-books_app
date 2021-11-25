@@ -1,0 +1,33 @@
+ja:
+  title:
+    books: 本の一覧
+    new_books: 本の登録
+    edit_books: 本の内容更新
+
+  message:
+    confirm: 本当にいいですか？
+
+  errors:
+    prohibited: この書籍の保存を禁止する
+    create: 本の登録が完了しました
+    update: 本の更新が完了しました
+    delete: 本の削除が完了しました
+
+  activerecord:
+    models:
+      book: 本 #g
+
+    attributes:
+      book:
+        author: 著者 #g
+        memo: 本の概要 #g
+        picture: 画像 #g
+        title: 題名 #g
+
+  button:
+    new: 新規作成
+    edit: 更新
+    back: 戻る
+    show: 詳細
+    index: 一覧
+    destroy: 削除
