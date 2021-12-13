@@ -14,3 +14,12 @@ ja:
     registrations:
       user:
         signed_up: "登録完了"
+
+    failure:
+      user:
+        invalid: "Eメールアドレスとパスワードが一致しません"
+
+    sessions:
+      user:
+        signed_in: "ログインしました"
+        signed_out: "ログアウトしました"
