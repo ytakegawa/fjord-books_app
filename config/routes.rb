@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get '/', to: 'books#index'
-  get 'users/:id', to: 'users#show'
-  get 'users/new', to: 'users#new'
+  devise_for :users, 　controllers: { registrations: 'users/registrations' }
+  resources :users, only: [:index, :show]
+  #get 'users/:id', to: 'users#show'
+  # get 'users/new', to: 'users#new'
+  # get 'users/index', to: 'users#index'
   resources :books
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'books#index'
+  #devise_for :users, controllers: { registrations: 'users/registrations' }
 end
