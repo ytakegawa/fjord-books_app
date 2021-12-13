@@ -1,11 +1,16 @@
 ja:
   activerecord:
     models:
-      book: 本  #g
+      book: 本 #g
 
     attributes:
       book:
-        author: 著者  #g
-        memo: メモ  #g
-        picture: 画像  #g
-        title: 題名  #g
+        author: 著者 #g
+        memo: メモ #g
+        picture: 画像 #g
+        title: 題名 #g
+
+  devise:
+    registrations:
+      user:
+        signed_up: "登録完了"
