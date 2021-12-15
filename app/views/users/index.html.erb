@@ -22,7 +22,7 @@
       <td><%= link_to t('views.common.show'), user_profile_path(user) %></td>
       <td><%= link_to t('views.common.edit'), edit_user_registration_path(user) %></td>
       <td>
-        <%= link_to t('views.common.destroy'), user_profile_path(user), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+        <%= link_to t('views.common.destroy'), registration_path(user), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
       </td>
       <% end %>
     </tr>

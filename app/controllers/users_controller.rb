@@ -1,32 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
-  before_action :move_to_signed_in
+  before_action :authenticate_user!
 
   def index
-    @users = User.order(:id).page(params[:page])
-  end
-
-  def new
+    @users = User.order(:id).page(params[:page]).per(10)
   end
 
   def show
+    @user = User.find(params[:id])
     unless @user.id == current_user.id
       redirect_to users_path
-    end
-  end
-
-  def edit
-  end
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  private
-
-  def move_to_signed_in
-    unless user_signed_in?
-      redirect_to '/users/sign_in'
     end
   end
 end
