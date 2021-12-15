@@ -18,10 +18,10 @@
       <td><%= user.email %></td>
       <td><%= user.postal_code %></td>
       <td><%= user.adress %></td>
-      <td><%= link_to t('views.common.show'), user %></td>
+      <td><%= link_to t('views.common.show'), user_profile_path(user) %></td>
       <td><%= link_to t('views.common.edit'), edit_user_registration_path(user) %></td>
       <td>
-        <%= link_to t('views.common.destroy'), user, method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+        <%= link_to t('views.common.destroy'), user_profile_path(user), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
       </td>
     </tr>
     <% end %>

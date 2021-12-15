@@ -14,6 +14,7 @@ ja:
     registrations:
       user:
         signed_up: "登録完了"
+        updated: "アカウント情報の変更完了"
 
     failure:
       user:
