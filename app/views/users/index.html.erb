@@ -18,8 +18,8 @@
       <td><%= user.email %></td>
       <td><%= user.postal_code %></td>
       <td><%= user.adress %></td>
-      <% if user.id == current_user.id%>
       <td><%= link_to t('views.common.show'), user_profile_path(user) %></td>
+      <% if user.id == current_user.id%>
       <td><%= link_to t('views.common.edit'), edit_user_registration_path(user) %></td>
       <td>
         <%= link_to t('views.common.destroy'), registration_path(user), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
