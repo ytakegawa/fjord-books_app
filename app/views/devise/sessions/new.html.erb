@@ -1,6 +1,6 @@
-<h2>Log in</h2>
+<h2><%= t('.sign_in') %></h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), local: true) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -19,10 +19,10 @@
 <% end %>
 
 <div class="actions">
-  <%= f.submit "Log in" %>
+  <%= f.submit t('.sign_in') %>
 </div>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-<%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(resource_name) %><br />
 <% end %>

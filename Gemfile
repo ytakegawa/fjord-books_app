@@ -38,6 +38,7 @@ end
 group :development do
   gem 'faker'
   gem 'i18n_generators'
+  gem 'devise-i18n'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-fjord', require: false
