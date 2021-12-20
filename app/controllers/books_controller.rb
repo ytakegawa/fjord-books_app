@@ -75,8 +75,6 @@ class BooksController < ApplicationController
   end
 
   def move_to_signed_in
-    unless user_signed_in?
-      redirect_to '/users/sign_in'
-    end
+    redirect_to '/users/sign_in' unless user_signed_in?
   end
 end
