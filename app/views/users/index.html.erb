@@ -7,19 +7,21 @@
       <th><%= User.human_attribute_name(:name) %></th>
       <th><%= User.human_attribute_name(:postal_code) %></th>
       <th><%= User.human_attribute_name(:address) %></th>
+      <th><%= User.human_attribute_name(:avatar) %></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.postal_code %></td>
-        <td><%= user.address %></td>
-        <td><%= link_to t('views.common.show'), user %></td>
-      </tr>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><%= user.postal_code %></td>
+      <td><%= user.address %></td>
+      <td><%= image_tag user.avatar.variant(resize: "100x100") if user.avatar.attached? %></td>
+      <td><%= link_to t('views.common.show'), user %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
