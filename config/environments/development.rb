@@ -43,8 +43,6 @@ Rails.application.configure do
     :address => 'smtp.gmail.com',
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => 'fjordbootcamp33email@gmail.com',
-    :password => 'vtpb jwdl lpdj einc',
     :authentication => 'login',
   }
 
