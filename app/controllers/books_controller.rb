@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :move_to_signed_in
 
   # GET /books
   # GET /books.json
@@ -71,5 +72,9 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:title, :memo, :author, :picture)
+  end
+
+  def move_to_signed_in
+    redirect_to '/users/sign_in' unless user_signed_in?
   end
 end

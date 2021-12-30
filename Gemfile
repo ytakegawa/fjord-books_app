@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'devise-i18n'
   gem 'faker'
   gem 'i18n_generators'
   gem 'listen', '~> 3.3'
@@ -58,4 +59,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
+gem 'devise'
 gem 'kaminari'

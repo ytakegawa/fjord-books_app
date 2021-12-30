@@ -1,11 +1,13 @@
 en:
+  logged_in_name: "Logged in as"
+
   activerecord:
     models:
-      book: Book  #g
+      book: Book #g
 
     attributes:
       book:
-        author: Author  #g
-        memo: Memo  #g
-        picture: Picture  #g
-        title: Title  #g
+        author: Author #g
+        memo: Memo #g
+        picture: Picture #g
+        title: Title #g
