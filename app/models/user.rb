@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :active_follow, class_name: 'Follow',
-                           foreign_key: 'follower_id',
-                           dependent: :destroy
-  has_many :passive_follow, class_name: 'Follow',
-                            foreign_key: 'followed_id',
+  has_many :active_follows, class_name: 'Follow',
+                            foreign_key: 'follower_id',
                             dependent: :destroy
-  has_many :following, through: :active_follow, source: :followed
-  has_many :followers, through: :passive_follow
+  has_many :passive_follows, class_name: 'Follow',
+                             foreign_key: 'followed_id',
+                             dependent: :destroy
+  has_many :following, through: :active_follows, source: :followed
+  has_many :followers, through: :passive_follows
   has_one_attached :avatar
 
   def follow(other_user)
@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def unfollow(other_user)
-    active_follow.find_by(followed_id: other_user.id).destroy
+    active_follows.find_by(followed_id: other_user.id).destroy
   end
 
   def following?(other_user)
