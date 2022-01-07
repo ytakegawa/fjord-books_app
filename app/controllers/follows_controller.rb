@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowsController < ApplicationController
   before_action :set_user
 
@@ -7,7 +9,6 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    # Follow.find(params[:followed_id]).followed
     current_user.unfollow(@user)
     redirect_to user_path(@user)
   end
