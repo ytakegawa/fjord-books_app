@@ -11,12 +11,14 @@
   <div class="user_avatars">
     <h2><%= @title %></h2>
     <% @users.each do |user| %>
-    <% user_avatar = image_tag user.avatar.variant(resize_to_fill: [50, 50])%>
-    <%= link_to user_avatar, user %>
-    <%= user.name%>
+    <% if user.avatar.attached? %>
+    <%= image_tag user.avatar.variant(resize_to_fill: [50, 50])%>
+    <% end%>
+    <%= link_to user.name, user %>
     <br>
     <% end %>
   </div>
   <% end %>
 </section>
 <%= paginate @users %>
+<%= link_to t('views.common.back'), users_path %>
