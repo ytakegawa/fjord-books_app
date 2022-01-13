@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeColumnNullToFollows < ActiveRecord::Migration[6.1]
   def change
     change_column_null :follows, :followed_id, null: false
