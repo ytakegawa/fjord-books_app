@@ -6,8 +6,8 @@
   <span><%= link_to t("follow.view_my_profile"), @user %></span>
 </section>
 <section class="stats">
-  <%= render 'shared/stats' %>
-  <% if @users.any? %>
+  <%= render partial: 'shared/stats', locals: {user: @user} %>
+  <% if @users.present? %>
   <div class="user_avatars">
     <h2><%= @title %></h2>
     <% @users.each do |user| %>
