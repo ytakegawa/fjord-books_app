@@ -1,18 +1,23 @@
 ja:
   activerecord:
     models:
-      book: 本  #g
+      book: 本 #g
       user: ユーザ
+      report: 日報
 
     attributes:
       book:
-        author: 著者  #g
-        memo: メモ  #g
-        picture: 画像  #g
-        title: 題名  #g
+        author: 著者 #g
+        memo: メモ #g
+        picture: 画像 #g
+        title: 題名 #g
       user:
         name: 氏名
         postal_code: 郵便番号
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+      report:
+        title: タイトル
+        content: 内容
+        created_at: 作成日時
