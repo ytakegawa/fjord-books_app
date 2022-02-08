@@ -8,6 +8,8 @@ class ReportsController < ApplicationController
   end
 
   def show
+    @comments = @report.comments.order(:created_at).page(params[:page]).per(5)
+    @comment = @report.comments.build(user_id: current_user.id)
   end
 
   def edit
@@ -35,10 +37,8 @@ class ReportsController < ApplicationController
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human) }
-        format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +47,6 @@ class ReportsController < ApplicationController
     @report.destroy
     respond_to do |format|
       format.html { redirect_to user_reports_path(@report.user_id), notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
-      format.json { head :no_content }
     end
   end
 

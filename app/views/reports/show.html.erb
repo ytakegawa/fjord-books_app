@@ -14,5 +14,9 @@
   <strong><%= Report.human_attribute_name(:content) %>:</strong>
   <%= @report.content %>
 </p>
+<br>
+<%= render 'comments/show', comments: @comments%>
+<br>
+<%= render 'comments/form', comment: @comment, report: @report, error_comment: @error_comment %>
 
 <%= link_to t('views.common.back'), user_reports_path(@report.user_id) %>

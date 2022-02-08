@@ -257,3 +257,9 @@ ja:
         title: "アカウント編集"
   reports:
     title_show: "日報を見る"
+  comments:
+    content_edit: "コメントを書く"
+    content_show: "コメント一覧"
+    content_done: "コメントする"
+    content_error: "コメント登録エラー（コメントできませんでした）"
+    content_nothing: "コメントがありません"
