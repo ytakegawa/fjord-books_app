@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
   before_action :correct_user, only: %i[edit update destroy]
@@ -12,8 +14,7 @@ class ReportsController < ApplicationController
     @comment = @report.comments.build(user_id: current_user.id)
   end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @report = Report.new
@@ -61,8 +62,6 @@ class ReportsController < ApplicationController
   end
 
   def correct_user
-    unless current_user.id == @report.user_id
-      redirect_to users_path
-    end
+    redirect_to users_path unless current_user.id == @report.user_id
   end
 end
