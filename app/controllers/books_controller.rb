@@ -11,7 +11,10 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.json
-  def show; end
+  def show
+    @comments = @book.comments.order(:created_at).page(params[:page]).per(5)
+    @comment = @book.comments.build(user_id: current_user.id)
+  end
 
   # GET /books/new
   def new

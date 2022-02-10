@@ -15,8 +15,8 @@
   <%= @report.content %>
 </p>
 <br>
-<%= render 'comments/show', comments: @comments%>
+<%= render 'comments/show', comments: @comments, commentable_type: @report%>
 <br>
-<%= render 'comments/form', comment: @comment, report: @report, error_comment: @error_comment %>
+<%= render 'comments/form', comment: @comment, commentable_type: @report, error_comment: @error_comment %>
 
 <%= link_to t('views.common.back'), user_reports_path(@report.user_id) %>

@@ -19,6 +19,11 @@
   <strong><%= Book.human_attribute_name(:picture) %>:</strong>
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
+<br>
+<%= render 'comments/show', comments: @comments, commentable_type: @book %>
+<br>
+<%= render 'comments/form', comment: @comment, commentable_type: @book, error_comment: @error_comment %>
+
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>

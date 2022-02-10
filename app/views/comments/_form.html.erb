@@ -1,6 +1,6 @@
 <h2><strong><%= t('comments.content_edit') %></strong></h2>
 
-<%= form_with(model: [report, comment], local: true) do |form| %>
+<%= form_with(model: [commentable_type, comment], local: true) do |form| %>
 
 <% if error_comment.present? %>
 <div>

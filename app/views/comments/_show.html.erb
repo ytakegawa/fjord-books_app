@@ -18,7 +18,7 @@
       <td><%= user.name %></td>
       <% if comment.user_id == current_user.id%>
       <td>
-        <%= link_to t('views.common.destroy'), report_comment_path(comment.commentable_id, comment.id ), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+        <%= link_to t('views.common.destroy'), polymorphic_path([commentable_type, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
       </td>
       <% end %>
       <br>
