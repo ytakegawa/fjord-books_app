@@ -2,21 +2,21 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-  <%= @report.created_at.to_s(:datetime_jp) %>
+  <%= @content.created_at.to_s(:datetime_jp) %>
 </p>
 
 <p>
   <strong><%= Report.human_attribute_name(:title) %>:</strong>
-  <%= @report.title %>
+  <%= @content.title %>
 </p>
 
 <p>
   <strong><%= Report.human_attribute_name(:content) %>:</strong>
-  <%= @report.content %>
+  <%= @content.content %>
 </p>
 <br>
-<%= render 'comments/show', comments: @comments, commentable_type: @report%>
+<%= render 'comments/show', comments: @comments, commentable_type: @content %>
 <br>
-<%= render 'comments/form', comment: @comment, commentable_type: @report, error_comment: @error_comment %>
+<%= render 'comments/form', comment: @comment, commentable_type: @content, error_comment: @error_comment %>
 
-<%= link_to t('views.common.back'), user_reports_path(@report.user_id) %>
+<%= link_to t('views.common.back'), user_reports_path(@content.user_id) %>

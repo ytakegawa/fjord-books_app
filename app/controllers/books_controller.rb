@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_content, only: %i[show edit update destroy]
 
   # GET /books
   # GET /books.json
@@ -12,8 +12,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comments = @book.comments.order(:created_at).page(params[:page]).per(5)
-    @comment = @book.comments.build(user_id: current_user.id)
+    @comments = @content.comments.order(:created_at).page(params[:page]).per(5)
+    @comment = @content.comments.build(user_id: current_user.id)
   end
 
   # GET /books/new
@@ -44,12 +44,12 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
-        format.json { render :show, status: :ok, location: @book }
+      if @content.update(book_params)
+        format.html { redirect_to @content, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
+        format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +57,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-    @book.destroy
+    @content.destroy
     respond_to do |format|
       format.html { redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human) }
       format.json { head :no_content }
@@ -67,8 +67,8 @@ class BooksController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_book
-    @book = Book.find(params[:id])
+  def set_content
+    @content = Book.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
