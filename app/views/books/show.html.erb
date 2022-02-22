@@ -2,23 +2,27 @@
 
 <p>
   <strong><%= Book.human_attribute_name(:title) %>:</strong>
-  <%= @book.title %>
+  <%= @content.title %>
 </p>
 
 <p>
   <strong><%= Book.human_attribute_name(:memo) %>:</strong>
-  <%= @book.memo %>
+  <%= @content.memo %>
 </p>
 
 <p>
   <strong><%= Book.human_attribute_name(:author) %>:</strong>
-  <%= @book.author %>
+  <%= @content.author %>
 </p>
 
 <p>
   <strong><%= Book.human_attribute_name(:picture) %>:</strong>
-  <%= image_tag(@book.picture_url) if @book.picture.present? %>
+  <%= image_tag(@content.picture_url) if @content.picture.present? %>
 </p>
-
-<%= link_to t('views.common.edit'), edit_book_path(@book) %> |
+<br>
+<%= render 'comments/show', comments: @comments, commentable_type: @content %>
+<br>
+<%= render 'comments/form', comment: @comment, commentable_type: @content, error_comment: @error_comment %>
+<br>
+<%= link_to t('views.common.edit'), edit_book_path(@content) %> |
 <%= link_to t('views.common.back'), books_path %>

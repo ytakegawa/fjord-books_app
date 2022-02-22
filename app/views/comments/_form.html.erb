@@ -1,0 +1,27 @@
+<h2><strong><%= t('comments.content_edit') %></strong></h2>
+
+<%= form_with(model: [commentable_type, comment], local: true) do |form| %>
+
+<% if error_comment.present? %>
+<div>
+  <strong>
+    <p><%= t('comments.content_error') %></p>
+  </strong>
+</div>
+<% end %>
+
+<div>
+  <%= form.label :content %>
+  <%= form.text_area :content, required: true %>
+</div>
+
+<div>
+  <%= form.hidden_field :commentable_type, :value => comment.commentable_type %>
+  <%= form.hidden_field :commentable_id, :value => comment.commentable_id %>
+
+</div>
+
+<div>
+  <%= form.submit t('comments.content_done') %>
+</div>
+<% end %>
