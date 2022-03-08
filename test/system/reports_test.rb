@@ -9,13 +9,11 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit root_url
     click_on '日報'
     assert_selector 'h1', text: '日報'
   end
 
   test 'ceate a report' do
-    visit root_url
     click_on '日報'
     click_on '新規作成'
 
@@ -29,7 +27,6 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'updating a report' do
-    visit root_url
     click_on '日報'
     click_on '編集'
 
@@ -43,7 +40,6 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroying a report' do
-    visit root_url
     click_on '日報'
     page.accept_confirm do
       click_on '削除'

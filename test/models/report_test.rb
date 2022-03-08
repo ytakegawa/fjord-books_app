@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   test 'editable' do
-    alice = User.create!(email: 'ali@example.com', name: 'alice', password: 'password')
+    alice = User.create!(:alice)
     bob = User.create!(email: 'bob@example.com', name: 'bob', password: 'password')
     alice_report = Report.create!(user_id: alice.id, title: 'テスト日報', content: '日報を作成しました')
     bob_report = Report.create!(user_id: bob.id, title: 'テスト日報', content: '日報を作成しました')
