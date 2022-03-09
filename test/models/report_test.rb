@@ -11,4 +11,11 @@ class ReportTest < ActiveSupport::TestCase
     assert_not carol_report.editable?(dave)
     assert carol_report.editable?(carol)
   end
+
+  test 'created_on' do
+    carol = User.create!(email: 'carol@example.com', name: 'carol', password: 'password')
+    carol_report = Report.create!(user_id: carol.id, title: 'テスト日報', content: '日報を作成しました')
+    Time.zone = 'Tokyo'
+    assert Time.zone.today == carol_report.created_on
+  end
 end
