@@ -12,7 +12,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'follow' do
     alice = User.create!(:alice)
-    bob = User.create!(email: 'bob@example.com', name: 'bob', password: 'password')
+    bob = User.create!(:bob)
 
     assert_not alice.following?(bob)
     alice.follow(bob)
