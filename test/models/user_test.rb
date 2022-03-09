@@ -11,14 +11,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'follow' do
-    alice = User.create!(:alice)
-    bob = User.create!(:bob)
+    # alice = User.find_by(:alice)
+    # bob = User.find_by(:bob)
+    carol = User.create!(email: 'carol@example.com', name: 'carol', password: 'password')
+    dave = User.create!(email: 'dave@example.com', name: 'dave', password: 'password')
 
-    assert_not alice.following?(bob)
-    alice.follow(bob)
-    assert alice.following?(bob)
-    assert_not alice.followed_by?(bob)
-    assert bob.followed_by?(alice)
+    assert_not carol.following?(dave)
+    carol.follow(dave)
+    assert carol.following?(dave)
+    assert_not carol.followed_by?(dave)
+    assert dave.followed_by?(carol)
   end
 
   test 'unfollow' do
