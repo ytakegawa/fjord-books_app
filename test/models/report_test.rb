@@ -15,6 +15,8 @@ class ReportTest < ActiveSupport::TestCase
   test 'created_on' do
     carol = User.create!(email: 'carol@example.com', name: 'carol', password: 'password')
     carol_report = Report.create!(user_id: carol.id, title: 'テスト日報', content: '日報を作成しました')
-    assert Time.zone.today == carol_report.created_on
+    travel_to Time.zone.local(2022, 3, 15) do
+      assert_equal Time.zone.today, carol_report.created_on
+    end
   end
 end
