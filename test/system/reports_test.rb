@@ -19,13 +19,13 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報'
     click_on '新規作成'
 
-    fill_in 'タイトル', with: '日報作成テスト'
-    fill_in '内容', with: '面白い日報です'
+    fill_in 'タイトル', with: '日報新規作成のテスト'
+    fill_in '内容', with: '新規作成された日報です'
     click_button '登録する'
 
     assert_text '日報が作成されました'
-    assert_text '日報作成テスト'
-    assert_text '面白い日報です'
+    assert_text '日報新規作成のテスト'
+    assert_text '新規作成された日報です'
   end
 
   test 'updating a report' do

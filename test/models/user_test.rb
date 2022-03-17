@@ -4,9 +4,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @carol = User.create!(email: 'carol@example.com', name: 'carol', password: 'password')
-    @dave = User.create!(email: 'dave@example.com', name: 'dave', password: 'password')
-    @carol_followed_dave = @carol.follow(@dave)
+    @alice = users(:alice)
+    @bob = users(:bob)
   end
 
   test 'name or email' do
@@ -19,22 +18,26 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'follow' do
-    assert_equal @carol.id, @carol_followed_dave.follower_id
-    assert_equal @dave.id, @carol_followed_dave.following_id
+    carol = User.create!(email: 'carol@example.com', name: 'carol', password: 'password')
+    dave = User.create!(email: 'dave@example.com', name: 'dave', password: 'password')
+    follow = carol.follow(dave)
+
+    assert_equal carol.id, follow.follower_id
+    assert_equal dave.id, follow.following_id
   end
 
   test 'following?' do
-    assert_not @dave.following?(@carol)
-    assert @carol.following?(@dave)
+    assert_not @bob.following?(@alice)
+    assert @alice.following?(@bob)
   end
 
   test 'followed_by?' do
-    assert_not @carol.followed_by?(@dave)
-    assert @dave.followed_by?(@carol)
+    assert_not @alice.followed_by?(@bob)
+    assert @bob.followed_by?(@alice)
   end
 
   test 'unfollow' do
-    assert_not @dave.unfollow(@carol)
-    assert @carol.unfollow(@dave)
+    assert_not @bob.unfollow(@alice)
+    assert @alice.unfollow(@bob)
   end
 end
